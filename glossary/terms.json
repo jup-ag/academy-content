@@ -1,0 +1,314 @@
+[
+  {
+    "term": "Airdrop",
+    "definition": "A distribution of free tokens to wallet addresses, often used to reward early users or promote a project."
+  },
+  {
+    "term": "AMM",
+    "definition": "Automated Market Maker. A decentralized exchange mechanism that uses liquidity pools and algorithms to price assets instead of traditional order books."
+  },
+  {
+    "term": "APR",
+    "definition": "Annual Percentage Rate. The yearly interest rate earned or paid, without accounting for compounding."
+  },
+  {
+    "term": "APY",
+    "definition": "Annual Percentage Yield. The yearly return on an investment, accounting for compound interest."
+  },
+  {
+    "term": "Blockchain",
+    "definition": "A distributed, immutable ledger that records transactions across a network of computers. Each block contains a set of transactions and links to the previous block."
+  },
+  {
+    "term": "Block Explorer",
+    "definition": "A tool that allows users to browse and search blockchain data, including transactions, addresses, and blocks."
+  },
+  {
+    "term": "Bridge",
+    "definition": "A protocol that enables the transfer of assets between different blockchains."
+  },
+  {
+    "term": "Borrow Rate",
+    "definition": "The interest rate charged when borrowing assets from a lending protocol. It fluctuates based on supply and demand in the lending pool."
+  },
+  {
+    "term": "Burn",
+    "definition": "Permanently removing tokens from circulation by sending them to an inaccessible address, reducing total supply."
+  },
+  {
+    "term": "Collateral",
+    "definition": "Assets deposited as security when borrowing. If the borrower fails to repay, the collateral can be liquidated to cover the debt."
+  },
+  {
+    "term": "Cold Wallet",
+    "definition": "A cryptocurrency wallet that is not connected to the internet, providing enhanced security for long-term storage."
+  },
+  {
+    "term": "Consensus",
+    "definition": "The process by which blockchain network participants agree on the current state of the ledger."
+  },
+  {
+    "term": "Custodial Wallet",
+    "definition": "A wallet where a third party (like an exchange) holds and manages your private keys on your behalf."
+  },
+  {
+    "term": "DAO",
+    "definition": "Decentralized Autonomous Organization. A community-led entity governed by smart contracts and token-holder votes rather than a central authority."
+  },
+  {
+    "term": "dApp",
+    "definition": "Decentralized Application. An application built on a blockchain that operates without a central server."
+  },
+  {
+    "term": "DCA",
+    "definition": "Dollar-Cost Averaging. An investment strategy where you buy a fixed amount of an asset at regular intervals, regardless of price."
+  },
+  {
+    "term": "DeFi",
+    "definition": "Decentralized Finance. Financial services built on blockchain technology that operate without traditional intermediaries like banks."
+  },
+  {
+    "term": "DEX",
+    "definition": "Decentralized Exchange. A platform for trading cryptocurrencies directly between users without a central authority."
+  },
+  {
+    "term": "DEX Aggregator",
+    "definition": "A service that searches across multiple DEXs to find the best price and route for a token swap. Jupiter is a DEX aggregator on Solana."
+  },
+  {
+    "term": "Epoch",
+    "definition": "A defined period of time in a blockchain protocol. On Solana, an epoch lasts approximately 2-3 days and is used for staking reward distribution."
+  },
+  {
+    "term": "Fiat",
+    "definition": "Government-issued currency (e.g. USD, EUR) that is not backed by a physical commodity but by the issuing government."
+  },
+  {
+    "term": "Flash Loan",
+    "definition": "An uncollateralized loan that must be borrowed and repaid within the same transaction."
+  },
+  {
+    "term": "Gas",
+    "definition": "A unit measuring the computational effort required to execute transactions on a blockchain. On Solana, transaction fees are very low compared to other chains."
+  },
+  {
+    "term": "Governance",
+    "definition": "The system by which decisions are made within a decentralized protocol, typically through token-holder voting."
+  },
+  {
+    "term": "Health Factor",
+    "definition": "A metric in lending protocols that indicates how safe a borrowing position is. When it reaches zero, the position may be liquidated."
+  },
+  {
+    "term": "Hot Wallet",
+    "definition": "A cryptocurrency wallet connected to the internet, offering convenience for frequent transactions but with higher security risk."
+  },
+  {
+    "term": "Impermanent Loss",
+    "definition": "The temporary loss of value experienced by liquidity providers when the price of deposited assets changes relative to when they were deposited."
+  },
+  {
+    "term": "JLP",
+    "definition": "Jupiter Liquidity Provider token. The token received when providing liquidity to Jupiter's perpetual exchange pool."
+  },
+  {
+    "term": "JUP",
+    "definition": "The governance token of the Jupiter ecosystem on Solana."
+  },
+  {
+    "term": "Keypair",
+    "definition": "A pair of cryptographic keys (public key and private key) used to sign transactions and prove ownership of a wallet."
+  },
+  {
+    "term": "Lending Pool",
+    "definition": "A smart contract where users deposit assets that can be borrowed by others. Depositors earn interest from borrowers."
+  },
+  {
+    "term": "Leverage",
+    "definition": "Using borrowed funds to amplify the size of a trading position beyond what your own capital would allow."
+  },
+  {
+    "term": "Limit Order",
+    "definition": "An order to buy or sell an asset at a specific price or better. Jupiter supports on-chain limit orders on Solana."
+  },
+  {
+    "term": "Liquidation",
+    "definition": "The forced sale of collateral when a borrowing position becomes too risky, typically when the LTV ratio exceeds a threshold."
+  },
+  {
+    "term": "Liquidity",
+    "definition": "The ease with which an asset can be bought or sold without significantly affecting its price."
+  },
+  {
+    "term": "Liquidity Pool",
+    "definition": "A collection of tokens locked in a smart contract that provides liquidity for decentralized trading."
+  },
+  {
+    "term": "LTV",
+    "definition": "Loan-to-Value ratio. The ratio of a loan amount to the value of the collateral backing it. A higher LTV means higher liquidation risk."
+  },
+  {
+    "term": "Mainnet",
+    "definition": "The primary, production blockchain network where real transactions with real value occur."
+  },
+  {
+    "term": "Market Cap",
+    "definition": "The total value of a cryptocurrency, calculated by multiplying its price by the total circulating supply."
+  },
+  {
+    "term": "MEV",
+    "definition": "Maximum Extractable Value. The profit that can be made by reordering, inserting, or censoring transactions within a block."
+  },
+  {
+    "term": "Minting",
+    "definition": "The process of creating new tokens or NFTs on a blockchain."
+  },
+  {
+    "term": "Multiply",
+    "definition": "A Jupiter feature that lets users amplify their exposure to an asset by automatically looping deposits and borrows."
+  },
+  {
+    "term": "NFT",
+    "definition": "Non-Fungible Token. A unique digital asset on a blockchain that represents ownership of a specific item like art, music, or collectibles."
+  },
+  {
+    "term": "Node",
+    "definition": "A computer that maintains a copy of the blockchain and helps validate transactions on the network."
+  },
+  {
+    "term": "Non-Custodial Wallet",
+    "definition": "A wallet where the user has full control of their private keys. No third party can access or freeze the funds."
+  },
+  {
+    "term": "On-Chain",
+    "definition": "Actions or data that are recorded directly on the blockchain, making them transparent and verifiable."
+  },
+  {
+    "term": "Oracle",
+    "definition": "A service that provides external real-world data (like prices) to smart contracts on the blockchain."
+  },
+  {
+    "term": "Order Book",
+    "definition": "A list of buy and sell orders for an asset, organized by price level."
+  },
+  {
+    "term": "Perpetuals",
+    "definition": "Perpetual futures contracts that have no expiration date, allowing traders to hold leveraged positions indefinitely. Jupiter offers perpetual trading on Solana."
+  },
+  {
+    "term": "PnL",
+    "definition": "Profit and Loss. The net gain or loss on a trade or investment."
+  },
+  {
+    "term": "Private Key",
+    "definition": "A secret cryptographic key that proves ownership of a wallet and is used to sign transactions. Never share your private key."
+  },
+  {
+    "term": "Protocol",
+    "definition": "A set of rules and smart contracts that define how a decentralized application or service operates."
+  },
+  {
+    "term": "Public Key",
+    "definition": "A cryptographic key that serves as your wallet address. It can be safely shared so others can send you funds."
+  },
+  {
+    "term": "Recovery Phrase",
+    "definition": "A sequence of 12 or 24 words that can restore access to a wallet. Also called a seed phrase or mnemonic. Must be kept secret and secure."
+  },
+  {
+    "term": "RPC",
+    "definition": "Remote Procedure Call. An endpoint that allows applications to communicate with a blockchain node to read data or submit transactions."
+  },
+  {
+    "term": "Rugpull",
+    "definition": "A scam where project creators abandon a project and run away with investor funds."
+  },
+  {
+    "term": "Seed Phrase",
+    "definition": "See Recovery Phrase. A series of words used to recover a cryptocurrency wallet."
+  },
+  {
+    "term": "Self-Custody",
+    "definition": "Holding and managing your own cryptocurrency without relying on a third party. You control your private keys."
+  },
+  {
+    "term": "Slippage",
+    "definition": "The difference between the expected price of a trade and the actual price at which it executes, often due to market movement or low liquidity."
+  },
+  {
+    "term": "Smart Contract",
+    "definition": "Self-executing code deployed on a blockchain that automatically enforces the terms of an agreement."
+  },
+  {
+    "term": "SOL",
+    "definition": "The native token of the Solana blockchain, used for paying transaction fees and staking."
+  },
+  {
+    "term": "Solana",
+    "definition": "A high-performance blockchain known for fast transactions (~65,000 TPS) and low fees. Jupiter is built on Solana."
+  },
+  {
+    "term": "SPL Token",
+    "definition": "The token standard on Solana, similar to ERC-20 on Ethereum. All fungible tokens on Solana follow the SPL standard."
+  },
+  {
+    "term": "Stablecoin",
+    "definition": "A cryptocurrency designed to maintain a stable value, typically pegged 1:1 to a fiat currency like the US dollar (e.g. USDC, USDT)."
+  },
+  {
+    "term": "Staking",
+    "definition": "Locking up tokens to support network operations (like validating transactions) in exchange for rewards."
+  },
+  {
+    "term": "Swap",
+    "definition": "Exchanging one cryptocurrency for another. Jupiter aggregates routes across Solana DEXs to find the best swap price."
+  },
+  {
+    "term": "Token",
+    "definition": "A digital asset on a blockchain that can represent value, utility, governance rights, or other functions."
+  },
+  {
+    "term": "TPS",
+    "definition": "Transactions Per Second. A measure of blockchain throughput. Solana can handle approximately 65,000 TPS."
+  },
+  {
+    "term": "Transaction",
+    "definition": "An operation recorded on the blockchain, such as sending tokens, swapping, or interacting with a smart contract."
+  },
+  {
+    "term": "TVL",
+    "definition": "Total Value Locked. The total amount of assets deposited in a DeFi protocol, used as a measure of its size and adoption."
+  },
+  {
+    "term": "Utilization Rate",
+    "definition": "The percentage of deposited assets in a lending pool that are currently being borrowed. Higher utilization leads to higher borrow rates."
+  },
+  {
+    "term": "Validator",
+    "definition": "A node that participates in the consensus process to verify transactions and produce blocks on a proof-of-stake blockchain."
+  },
+  {
+    "term": "Vault",
+    "definition": "A smart contract that holds deposited assets and executes a specific strategy, such as lending or yield farming."
+  },
+  {
+    "term": "Wallet",
+    "definition": "Software or hardware that stores your cryptographic keys and lets you interact with the blockchain to send, receive, and manage your assets."
+  },
+  {
+    "term": "Whale",
+    "definition": "An individual or entity that holds a very large amount of a cryptocurrency, capable of influencing market prices."
+  },
+  {
+    "term": "Wrapped Token",
+    "definition": "A token that represents another asset on a different blockchain, enabling cross-chain interoperability."
+  },
+  {
+    "term": "Yield",
+    "definition": "The return earned on a crypto investment, typically expressed as APR or APY."
+  },
+  {
+    "term": "Yield Farming",
+    "definition": "A DeFi strategy where users move assets between protocols to maximize returns from lending, liquidity provision, or staking rewards."
+  }
+]

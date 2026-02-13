@@ -1,0 +1,50 @@
+---
+title: "Accessing Liquidity with Jupiter Borrow"
+publishedAt: '2026-02-10'
+image: ''
+badges:
+  - Intermediate
+  - Borrow
+---
+
+**Jupiter Borrow** is a core component of the Jupiter Lend ecosystem, allowing users to access immediate liquidity by using their digital assets as collateral. Instead of selling your tokens — which could trigger tax events or end your exposure to future price appreciation — Borrow lets you draw a loan against them.
+
+This mechanism is similar to **Securities-Based Lending** or a **Home Equity Line of Credit (HELOC)** in TradFi, where an existing asset is used to secure a flexible line of credit.
+
+## The Collateralization Model
+
+Borrowing on Jupiter is entirely **non-custodial** and governed by smart contracts. To take out a loan, you must first "over-collateralize" your position, meaning the value of the assets you deposit must be higher than the value of the assets you borrow.
+
+- **Non-Custodial Debt:** You retain ownership of your collateral, but it is held in a secure vault by the protocol until the loan is repaid
+- **Flexible Repayment:** There are no monthly minimum payments or fixed terms. You can repay your loan in partial installments or all at once, at any time that suits your financial strategy
+- **Interest Accrual:** Borrowing costs are based on the "Borrow Rate," which is dynamically calculated based on the demand for the specific asset you are borrowing from the Jupiter Earn vaults
+
+## Strategic Use Cases
+
+Why borrow instead of selling? Professional participants often use Jupiter Borrow for:
+
+- **Tax Efficiency:** In many jurisdictions, borrowing against an asset is not a taxable event, whereas selling it would trigger capital gains tax
+- **Working Capital:** Accessing cash for real-world expenses or other on-chain opportunities while maintaining a long-term "HODL" position on an asset like SOL
+- **Leverage Management:** Manually creating custom leverage positions that are more specific than the automated "Multiply" presets
+
+## Managing Your Loan-to-Value (LTV)
+
+The most critical metric for any borrower is the **Loan-to-Value (LTV)** ratio. This measures the relationship between your borrowed amount and the market value of your collateral.
+
+- **Safe LTV:** Most professional users aim for a "Safe" LTV (often below 50%) to provide a buffer against market volatility
+- **Maximum LTV:** Each asset has a specific limit. If your LTV exceeds this threshold due to a price drop in your collateral, the position becomes under-collateralized
+- **Liquidation:** To protect the lenders who provided the capital, the protocol will automatically sell a portion of your collateral to repay the loan if your LTV reaches the liquidation point
+
+## Operational Execution
+
+### Step 1: Deposit Collateral
+
+Navigate to jup.ag/lend. Choose an asset to deposit (such as **$SOL** or **$USDC**) to act as your collateral base. The interface will show you the maximum amount you are eligible to borrow based on that deposit.
+
+### Step 2: Draw Your Loan
+
+Select the asset you wish to receive (e.g., **$USDC** for stable liquidity). Enter the amount and review your **Health Factor**. A higher health factor indicates a lower risk of liquidation.
+
+### Step 3: Monitor and Repay
+
+Your dashboard provides a real-time view of your debt, accrued interest, and collateral value. You can add more collateral at any time to improve your health factor or repay the principal to reclaim your assets.
