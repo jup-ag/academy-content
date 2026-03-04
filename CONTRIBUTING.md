@@ -17,7 +17,6 @@ publishedAt: '2026-01-15'
 image: ''
 badges:
   - Beginner
-  - 10min
 ---
 ```
 
@@ -26,7 +25,6 @@ badges:
 - `publishedAt` - Date in `YYYY-MM-DD` format
 - `badges` - Array of tags:
   - Difficulty: `Beginner`, `Intermediate`, `Advanced`
-  - Reading time: `5min`, `10min`, `15min`, `20min`, `30min`
   - Topic (if relevant): `Wallet`, `Portfolio`, `Borrow`, `Multiply`
 
 ### Content guidelines
