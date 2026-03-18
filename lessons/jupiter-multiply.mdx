@@ -13,7 +13,7 @@ hiddenBadges:
 
 **Jupiter Multiply** is a high-efficiency tool designed for traders who want to increase their exposure to an asset through leverage without the complexity of manual "looping." By using your existing assets as collateral to borrow and reinvest, <Term id="multiply">Multiply</Term> allows you to scale your position size in a single click.
 
-This mechanism functions similarly to **Margin Trading** or a **Lombard Loan** in TradFi, where capital is borrowed against existing securities to increase overall market exposure. It bridges the gap between simple spot trading and complex perpetual contracts, offering a streamlined way to express a bullish thesis on the <Term id="solana">Solana</Term> ecosystem.
+This mechanism functions similarly to **Margin Trading** in TradFi, where capital is borrowed against existing securities to increase overall market exposure. It bridges the gap between simple spot trading and complex perpetual contracts, offering a streamlined way to express a bullish thesis on the <Term id="solana">Solana</Term> ecosystem.
 
 
 ### The Mechanics of One-Click Leverage
@@ -27,7 +27,7 @@ At its core, <Term id="multiply">Multiply</Term> automates the process of "lever
 
 ### The Infrastructure: Powered by Jupiter Lend
 
-<Term id="multiply">Multiply</Term> isn't a standalone product; it is a sophisticated interface built on top of the [Jupiter Lend](/lessons/jupiter-earn) engine.
+<Term id="multiply">Multiply</Term> isn't a standalone product; it is a sophisticated interface built on top of the [Jupiter Earn](/lessons/jupiter-earn) engine.
 
 - **Liquidity Sourcing:** When you "multiply" a position, the capital you borrow comes directly from the Jupiter Earn vaults. This ensures that you are accessing deep, protocol-level liquidity at competitive market rates
 - **Variable Interest:** The cost of your leverage (the borrow rate) is dynamic. It shifts based on the utilization of the lending pools, meaning your costs may decrease when liquidity is abundant or increase during periods of high demand
@@ -37,11 +37,12 @@ At its core, <Term id="multiply">Multiply</Term> automates the process of "lever
 
 Using leverage increases potential gains, but it also introduces unique risks that every professional participant must manage.
 
-### Key Risk Metrics
+**Key Risk Metrics:**
 
 - **Loan-to-Value (LTV):** This is the ratio of your borrowed debt to the value of your collateral. If the price of your asset drops, your <Term id="ltv">LTV</Term> rises
 - **Liquidation Price:** This is the specific price point where your <Term id="ltv">LTV</Term> reaches the "maximum threshold." At this point, the protocol must sell a portion of your collateral to repay the debt, protecting the lenders in the ecosystem
 - **Health Factor:** <Term id="multiply">Multiply</Term> provides a real-time "Health" indicator. Maintaining a high health factor by keeping lower leverage or adding more collateral is the primary way to defend against market volatility
+- **Amplified Losses:** Remember that leverage amplifies losses just as much as gains. A 3x leveraged position means a 10% price drop results in a 30% loss on your position. Always ensure you understand the downside before committing
 
 
 ## Hands on Jupiter Multiply
