@@ -16,16 +16,17 @@ Within the decentralized finance (DeFi) world, a <Term id="swap">Swap</Term> is 
 ### Hello, Ultra v3!
 To ensure you receive the most competitive rates globally, Jupiter utilizes Ultra V3, which functions like an institutional trading desk, scanning the entire market to optimize your trade.
 
-* **Zero platform fees (gasless)**: On qualifying pairs, Jupiter covers the network settlement costs so you don't pay them out of pocket. Platform fees may still apply.
-* **Optimal Price Discovery**: Ultra V3 aggregates market depth across all major liquidity sources. It doesn't just find one price; it routes your trade through the most efficient path to minimize costs.  
-* **Real-Time <Term id="slippage">Slippage</Term> Estimation (RTSE)**: This system monitors slippage in real-time. If the market moves against you during the millisecond of execution, the system adjusts to ensure you aren't "front-run" or overcharged.
+* **Gasless trading**: On qualifying pairs, Jupiter covers the Solana network transaction fee (gas) so you don't pay it out of pocket. Mechanically, Jupiter bundles the transaction and pays the base fee on your behalf. Note that platform fees may still apply on certain pairs.
+* **Optimal Price Discovery**: Ultra V3 aggregates market depth across all major liquidity sources. It doesn't just find one price; it routes your trade through the most efficient path to minimize costs.
+* **Real-Time <Term id="slippage">Slippage</Term> Estimation (RTSE)**: This system monitors slippage in real-time and adjusts to ensure you aren't overcharged if the market moves against you during execution.
+* **MEV Protection**: Your transactions are routed privately to prevent "front-running" and sandwich attacks, ensuring you receive the best possible price.
 
 ### What Qualifies for Gasless?
 All major verified [tokens](/lessons/cryptocurrency) with high liquidity like USDC, SOL, JUP, and other popular tokens are supported for Gasless trades.  
 You’ll know if the transaction is gasless when there’s a <img src="https://static.academy.jup.ag/images/gasless.png" alt="Gasless" className="inline h-5 w-auto align-middle" /> icon.
 
 ### Key Concepts for Swaps
-* **Liquidity**: This refers to the depth of the market. Deep liquidity allows you to execute large trades without significantly moving the price (i.e. price Impact). Jupiter taps into the deepest "vaults" on the network to ensure your trade remains stable.
+* **Liquidity**: This refers to the depth of the market. Deep liquidity allows you to execute large trades without significantly moving the price (i.e. price impact). Jupiter taps into the deepest "vaults" on the network to ensure your trade remains stable.
 * **Slippage**: The difference between your quoted price and the final execution price. High volatility can cause slippage; Ultra V3's RTSE is designed to keep this variance as close to zero as possible.
 
 ## Let’s Swap with Jupiter
@@ -42,5 +43,5 @@ You’ll know if the transaction is gasless when there’s a <img src="https://s
 Transparency is a core tenet of cryptocurrency. You can audit every transaction, including historical price points and execution methods.
 
 1. Navigate to the Trade section.  
-2. Select the History icon (top left) to view a comprehensive ledger of swaps, limit orders, and recurring buys.
+2. Navigate to the History section to view a comprehensive ledger of swaps, limit orders, and recurring buys.
 
