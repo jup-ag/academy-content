@@ -96,8 +96,8 @@
     "definition": "The system by which decisions are made within a decentralized protocol, typically through token-holder voting."
   },
   {
-    "term": "Health Factor",
-    "definition": "A metric in lending protocols that indicates how safe a borrowing position is. When it reaches zero, the position may be liquidated."
+    "term": "Position Health",
+    "definition": "Position Health is the status that shows how close your position is to liquidation. It reflects your current debt-to-collateral ratio relative to the Liquidation Threshold. The closer you are to the threshold, the higher the risk."
   },
   {
     "term": "Hot Wallet",
