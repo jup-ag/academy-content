@@ -40,8 +40,8 @@ Using leverage increases potential gains, but it also introduces unique risks th
 ### Key Risk Metrics
 
 - **Loan-to-Value (LTV):** This is the ratio of your borrowed debt to the value of your collateral. If the price of your asset drops, your <Term id="ltv">LTV</Term> rises
-- **Liquidation Price:** This is the specific price point where your <Term id="ltv">LTV</Term> reaches the "maximum threshold." At this point, the protocol must sell a portion of your collateral to repay the debt, protecting the lenders in the ecosystem
-- **Health Factor:** <Term id="multiply">Multiply</Term> provides a real-time "Health" indicator. Maintaining a high health factor by keeping lower leverage or adding more collateral is the primary way to defend against market volatility
+- **Liquidation Price:** This is the price at which your debt-to-collateral ratio reaches the Liquidation Threshold (LT). The LT is always higher than the max <Term id="ltv">LTV</Term>, creating a safety buffer between your borrowing limit and the liquidation point. At this point, the protocol must sell a portion of your collateral to repay the debt, protecting the lenders in the ecosystem
+- **Position Health:** <Term id="multiply">Multiply</Term> provides a real-time "Position Health" indicator. Maintaining a high <Term id="position-health">Position Health</Term> by keeping lower leverage or adding more collateral is the primary way to defend against market volatility
 
 
 ## Hands on Jupiter Multiply
@@ -52,8 +52,8 @@ Navigate to jup.ag/multiply. Select the asset you want to leverage (e.g., **SOL*
 
 ### Step 2: Reviewing the Manifest
 
-Before confirming, review the **Liquidation Price** and the **Net APY**. The Net <Term id="apy">APY</Term> accounts for the rewards earned by your assets minus the interest cost of your borrowed funds.
+Before confirming, review the **Liquidation Price** and the **Net APY**. The Final <Term id="apy">APY</Term> is the return on your net value (total collateral minus total debt), not on your total collateral. With higher leverage, your net value is smaller, so the actual earnings in absolute terms are lower than the percentage may suggest.
 
 ### Step 3: Execution and Monitoring
 
-Once you approve the transaction, your "Multiplied" position is active. You can monitor your <Term id="pnl">PnL</Term> and <Term id="health-factor">Health Factor</Term> directly from the dashboard and can choose to "De-leverage" or close the position at any time to lock in gains or reduce risk.
+Once you approve the transaction, your "Multiplied" position is active. You can monitor your <Term id="pnl">PnL</Term> and <Term id="position-health">Position Health</Term> directly from the dashboard and can choose to "Unwind" or close the position at any time to lock in gains or reduce risk.
