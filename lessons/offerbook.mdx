@@ -33,8 +33,7 @@ Every loan on Offerbook is built around five parameters. Understanding how they 
 - **LTV (Loan-to-Value):** The ratio between the borrowed USDC amount and the value of the collateral. For example, locking $1,000 of <Term id="sol">SOL</Term> and borrowing 700 USDC sets an <Term id="ltv">LTV</Term> of 70%. The borrowed amount and <Term id="ltv">LTV</Term> are linked - adjusting one automatically updates the other.
 - **APR / APY:** The <Term id="apr">APR</Term> is the annualized cost of borrowing, set by the borrower or by the lender when creating an offer. The <Term id="apy">APY</Term> is the annualized return for the lender, or the annualized cost for the borrower. Both are fully defined by the user, market-driven, and fixed for the entire duration of the loan.
 - **Loan Duration:** The fixed time period, in days, during which the collateral is locked and the loan is active. Once a loan starts, the duration cannot be changed. The loan must be repaid before maturity, at maturity, the loan becomes claimable by the lender. The borrower can still repay after maturity as long as the lender has not yet claimed the collateral. Once the lender claims, the collateral is transferred in full, regardless of its current market value.
-- **Loan expiration:** Represents the time period during which a loan offer is available to be filled. If a loan reaches its expiration date without being filled, the offer is invalidated and the offer creator must renew or cancel it.
-
+- **Offer Expiration:** Represents the time period during which a loan offer is available to be filled. If a loan reaches its expiration date without being filled, the offer is invalidated and the offer creator must renew or cancel it.
 
 Higher LTVs generally come with higher interest rates and are more commonly used for shorter durations. Lower LTVs carry less risk for lenders and tend to pair with longer loan periods.
 
@@ -133,10 +132,10 @@ Monitor your loan's maturity date from your dashboard. Repay at any time before 
 
 Navigate to the official Jupiter Offerbook website. Browse existing borrow offers and accept one directly, or select "Lend" to publish your own offer with your preferred collateral, USDC amount, duration, and <Term id="apy">APY</Term>. Evaluate each offer based on collateral quality, LTV, and loan duration.
 
-Thanks to the escrow wallet, you can set up multiple lending offers using the same USDC as collateral.
+Thanks to the escrow wallet, you can set up multiple lending offers using the same USDC.
 This allows you to reuse your available balance efficiently without needing to deposit funds multiple times.
 
-It enables more flexible and capital-efficient lending strategies. Once an offer is accepted, it will use the funds, while the others will remain paused until USDC is available again in your wallet.
+It enables more flexible and capital-efficient lending strategies. Once an offer is accepted, it will use the funds, while the others will remain paused until USDC is available again in your escrow wallet.
 
 **Step 2: Wait for a Match**
 
