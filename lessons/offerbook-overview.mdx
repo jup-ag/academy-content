@@ -19,6 +19,8 @@ In traditional finance, a private credit agreement between two parties -  a pawn
 
 Jupiter Offerbook brings this model on-chain. It is a permissionless, peer-to-peer money market where borrowers and lenders set their own terms, match with each other directly, and operate within a fully fixed loan structure from start to finish.
 
+![Jupiter Offerbook](https://static.academy.jup.ag/images/illustrations/offerbook_header.gif)
+
 ### What Is Jupiter Offerbook?
 
 Offerbook is a peer-to-peer credit market built on Solana, where users borrow and lend USDC against on-chain assets at fixed rates, for a fixed duration, with no price-based liquidations.
@@ -38,6 +40,8 @@ Every loan on Offerbook is built around five parameters. Understanding how they 
 - **Loan Duration:** The fixed loan period during which the collateral is locked and the loan is active. The duration cannot be changed once the loan starts, and the loan must be repaid before maturity. At maturity, the loan becomes claimable by the lender. The borrower can still repay after maturity as long as the lender has not yet claimed the collateral. Once the lender claims, the collateral is transferred in full, regardless of its current market value.
 - **Loan Expiration:** Represents the time period during which a loan offer is available to be filled. If an offer reaches its expiration date without being filled, the offer is delisted and the offer creator must renew or cancel it.
 
+![Loan Details](https://static.academy.jup.ag/images/illustrations/offerbook_loan_details.png)
+
 ---
 
 ### The Loan Lifecycle
@@ -52,11 +56,15 @@ A loan on Offerbook follows a simple, linear path with no moving parts once it b
 
 4. **Repay or collateral claim.** The borrower can repay at any point to reclaim their collateral in full. After maturity, the lender becomes eligible to manually claim the collateral - but the borrower can still repay until the lender does so. Once the lender claims, the transfer is final.
 
+![Offerbook's Loan Cycle](https://static.academy.jup.ag/images/illustrations/offerbook_loan_cycle.png)
+
 ### Fees, Explained Simply
 
 - When the loan is first filled, a **25% fee on the interest** is charged to the borrower. 
 - When the loan is repaid, a **10% fee on the interest** is charged to the lenders.This fee is taken from the interest amount, not the principal. 
 - In the event of a default, a **0.1% fee of the collateral** is charged during the collateral transfer.
+
+![Offerbook Fees](https://static.academy.jup.ag/images/illustrations/offerbook_fees_explained)
 
 At each of these moments, if a platform fee is charged, that fee can be split into referral rewards. By default, the fee is divided like this:
 - 20% goes to the referred user
