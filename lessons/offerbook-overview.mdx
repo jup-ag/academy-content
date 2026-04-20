@@ -17,13 +17,13 @@ hiddenBadges:
 
 In traditional finance, a private credit agreement between two parties -  a pawnshop loan or a bilateral business loan - works by fixing every condition upfront. Both sides agree on the collateral, the rate, and the duration before anything is signed. Once the terms are set, nothing changes until maturity. There are no surprise margin calls, no mid-loan adjustments, and no ambiguity about the outcome.
 
-Jupiter Offerbook brings this model on-chain. It is a permissionless, peer-to-peer money market where borrowers and lenders set their own terms, match with each other directly, and operate within a fully fixed loan structure from start to finish.
+Jupiter Offerbook brings this model onchain. It is a permissionless, peer-to-peer money market where borrowers and lenders set their own terms, match with each other directly, and operate within a fully fixed loan structure from start to finish.
 
 ![Jupiter Offerbook](https://static.academy.jup.ag/images/illustrations/offerbook_header.gif)
 
 ### What Is Jupiter Offerbook?
 
-Offerbook is a peer-to-peer credit market built on Solana, where users borrow and lend USDC against on-chain assets at fixed rates, for a fixed duration, with no price-based liquidations.
+Offerbook is a peer-to-peer credit market built on Solana, where users borrow and lend USDC against onchain assets at fixed rates, for a fixed duration, with no price-based liquidations.
 
 Unlike traditional money markets - including [Jupiter Borrow](/lessons/jupiter-borrow) - Offerbook does not rely on real-time market pricing or continuous collateral monitoring. Risk is not managed by tracking the price of your collateral in real time. Instead, it is managed by time: every loan has a known duration, a known rate, and a known outcome at maturity. Both sides of the trade define their terms, publish an offer, and wait for a match. Once matched, nothing changes until the loan ends.
 
@@ -34,7 +34,7 @@ At this point, Offerbook supports any Solana asset that’s Jupiter Verified, an
 
 Every loan on Offerbook is built around five parameters. Understanding how they interact is the foundation for building any strategy on the platform.
 
-- **Collateral:** The on-chain asset locked by the borrower for the duration of the loan. Any verified token on Solana can serve as collateral. If the loan is not repaid by maturity, the lender becomes eligible to claim the collateral - but the borrower can still repay until the lender claims it.
+- **Collateral:** The onchain asset locked by the borrower for the duration of the loan. Any verified token on Solana can serve as collateral. If the loan is not repaid by maturity, the lender becomes eligible to claim the collateral - but the borrower can still repay until the lender claims it.
 - **LTV (Loan-to-Value):** The ratio between the borrowed USDC amount and the value of the collateral. For example, locking $1,000 of SOL and borrowing 700 USDC sets an LTV of 70%. The borrowed amount and LTV are linked - adjusting one automatically updates the other.
 - **APR / APY:** The APR (Annual Percentage Rate) is the annualized cost of borrowing, set by the borrower or by the lender when creating an offer. The APY (Annual Percentage Yield) is the annualized return rate for the lender. Both are fully defined by the user, market-driven, and fixed for the entire duration of the loan.
 - **Loan Duration:** The fixed loan period during which the collateral is locked and the loan is active. The duration cannot be changed once the loan starts, and the loan must be repaid before maturity. At maturity, the loan becomes claimable by the lender. The borrower can still repay after maturity as long as the lender has not yet claimed the collateral. Once the lender claims, the collateral is transferred in full, regardless of its current market value.
@@ -75,7 +75,7 @@ At each of these moments, if a platform fee is charged, that fee can be split in
 
 ### A Real Example
 
-A borrower holds a tokenized asset valued at approximately $10,000. The asset has limited on-chain liquidity, making it difficult to sell quickly without significant price impact. Rather than attempting to sell, the borrower can access USDC for 3 days by leveraging their tokenized asset in an offer.
+A borrower holds a tokenized asset valued at approximately $10,000. The asset has limited onchain liquidity, making it difficult to sell quickly without significant price impact. Rather than attempting to sell, the borrower can access USDC for 3 days by leveraging their tokenized asset in an offer.
 
 **They create an Offerbook offer with the following terms:**
 
