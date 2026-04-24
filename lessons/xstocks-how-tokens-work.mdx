@@ -1,0 +1,67 @@
+---
+title: "How xStocks Tokens Work"
+publishedAt: '2026-03-19'
+badges:
+  - Beginner
+  - xStocks
+hiddenBadges:
+  - Tokenized Stocks
+  - SPL Token
+---
+
+## xStocks, a leading tokenized stocks issuer
+
+Tokenized stocks are issued by different private issuers. The market is currently driven by a few major players such as [xStocks](https://xstocks.fi/), one of the leading actors in the sector, with more than $250M of assets issued onchain and a month-to-month growth exceeding 10% in early 2026\.
+
+![xStocks Total AUM](/images/lesson/xstocks_total_aum.webp)
+
+Different issuers may use different structures to manage the underlying assets, which can create advantages and trade-offs for both issuers and users depending on the custody model, liquidity structure, and regulatory framework.
+
+Understanding how these systems work helps users better evaluate the reliability and transparency of tokenized assets.
+
+## Difference between tokenized, synthetic assets and perpetuals
+
+Onchain exposure to equities can be accessed through different types of financial instruments. These are generally grouped into three major categories: **tokenized equities, synthetic assets, and perpetual futures**.
+
+Each of them is built with specific characteristics and serves different purposes.
+
+### Tokenized stocks
+
+* Tokens backed **1:1 by real shares held by a <Term id="custodian">custodian</Term>**  
+* Tokenized stocks offer the **closest exposure to the real asset**, with accurate price tracking based on the underlying stock.
+
+### Synthetic stocks
+
+* Tokens that track the price using collateral and oracles, without holding the real underlying shares.  
+* This class of assets requires fewer centralized processes such as <Term id="kyc-kyb">KYC/KYB</Term> to mint or redeem tokens, but it can introduce depeg risk (where the value of the token is no longer pegged to the value of the real-world asset), since the token value depends on collateral mechanisms rather than direct ownership of the asset.
+
+### Perpetual futures
+
+* Perpetual markets are derivatives that track stock prices using <Term id="funding-rate">funding rate</Term> mechanisms.  
+* They provide an efficient way to trade with leverage and high liquidity, but they do not represent ownership or direct exposure to the asset. They are primarily trading instruments, not assets designed for long-term holding or DeFi composability.
+
+Tokenized stocks are therefore the only structure that provides direct economic exposure backed by real assets. Their onchain nature enables full DeFi composability, while their fractionability and transferability greatly improves accessibility to global equity markets.
+
+## xStocks Architecture
+
+As a leading tokenized stock issuer, **xStocks** operates through the following process:
+
+* xStocks acquires real stocks such as **S&P500, Tesla, Nvidia**, and others.  
+* These stocks are held in a **segregated custody account**, ensuring that the assets remain reserved and dedicated to backing the issued tokens.  
+* xStocks then mints onchain tokens representing exposure to those stocks while maintaining a **1:1 ratio between the tokens in circulation and the underlying shares held in custody**.
+
+Proof of reserves and transparency data can be accessed here: [https://defi.xstocks.fi/proof-of-reserves](https://defi.xstocks.fi/proof-of-reserves)
+
+These tokens **track the value of the underlying asset** and automatically compound dividends into the token's value when the underlying company distributes dividends.
+
+---
+
+## xStocks Availability
+
+xStocks tokens provide a unique liquidity structure that enables **continuous accessibility**.
+
+Issuance and redemption operations performed by authorized minters and redeemers occur during traditional market hours when the US stock market is open (typically 24/5).
+
+However, once tokens are circulating onchain, they can be freely traded on secondary markets 24/7, just like any other blockchain asset.
+
+This model maintains supply parity with the underlying assets, while allowing token holders to benefit from continuous trading and integration within the broader DeFi ecosystem.
