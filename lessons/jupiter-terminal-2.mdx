@@ -1,0 +1,86 @@
+---
+title: "Trading on Jupiter Terminal: Your First Memecoin Trade"
+publishedAt: '2026-05-13'
+tryUrl: 'https://jup.ag/terminal'
+badges:
+  - Intermediate
+  - Product
+hiddenBadges:
+  - Jupiter Terminal
+  - Terminal
+  - Memecoins
+  - Quick Buy
+  - Quick Swap
+  - MEV
+  - PnL
+  - Slippage
+---
+
+## Trading on Jupiter Terminal: Your First Memecoin Trade
+
+Buying a stock on a traditional broker takes a quote, a confirmation screen, and minutes of settlement. **Jupiter Terminal** compresses that flow into a single click, Quick Buy from any feed, Quick Swap from any token page, with **MEV protection** routed through Jito validators behind every trade. This lesson is the hands-on follow-up to [Discovering Memecoins on Jupiter Terminal](/lessons/jupiter-terminal-1). It covers Terminal's settings, the trade flow, PnL tracking, and how to troubleshoot the most common issues.
+
+### Configuring Your Settings
+
+Before your first trade, configure your execution settings (gear icon in the top nav). These three settings shape every trade:
+
+* **Quick Buy SOL Amount**, preset amount that Quick Buy uses every time. Common starting values: 0.1 to 0.5 SOL.
+* **Slippage**, how much price movement you tolerate between submitting and executing. Too low = trades fail. Too high = poor fills. For memecoins, due to their inherent volatility, a higher slippage is typically required compared to less volatile tokens like stablecoins. 
+* **Priority Fee**, Solana validators prioritize transactions with higher fees. Default is fine for normal markets; raise it during high-volume periods.
+
+**MEV Protection** is enabled by default and routes your trade through Jito validators, which prevents sandwich attacks (a bot front-running your buy and selling into it).
+
+### The Three Ways to Trade
+
+Terminal offers three trade flows, pick based on your situation.
+
+![Three trade flows, three different situations](https://static.academy.jup.ag/images/illustrations/T3_trade_flows.png)
+
+**Quick Buy** is fastest. Click the Buy button on any row in Discover or AlphaScan. Uses your preset SOL amount and saved settings. Good for snap decisions on tokens you've already vetted.
+
+**Quick Swap** is most controlled. Click any token to open its detail page. Below the chart, the Quick Swap form lets you set a custom amount, see the chart context, and execute without leaving the page. Best for typical memecoin trading.
+
+**Full Swap Form** is most flexible. Switches between Market, Limit, and Recurring (DCA) orders. Use this when you need a limit order or to set up dollar-cost averaging.
+
+---
+
+### Tutorial: Your First Quick Buy
+
+This walkthrough uses Quick Buy with a small position (0.1 SOL). Adjust to your comfort level.
+
+![The Terminal Discover feed with Quick Buy buttons on every row](https://static.academy.jup.ag/images/illustrations/appterminal.png)
+
+1. Go to **jup.ag/terminal** and click **Connect** in the top-right. Select your Solana wallet (Jupiter Mobile, Jupiter Extension).
+2. Open **Settings** (gear icon). Set Quick Buy SOL Amount to **0.1 SOL** and Slippage to **10%**. Confirm MEV Protection is on.
+3. In the Discover feed, click the **Cooking** or **Top Traded** sub-tab.
+4. Pick a token whose row catches your eye. Click the token name to open its detail page.
+5. Review the **safety indicators**: Mint and Freeze Authority should be revoked, Top 10 Holders ideally below 50%, Dev Holding moderate, and no recent DS (developer sell) marker.
+6. If the token passes your check, return to the Discover list and click the **Buy** button on its row. (Or use Quick Swap on the detail page if you want a custom amount.)
+7. Approve the transaction in your wallet. Execution takes about 0.4 seconds on Solana.
+8. Open the **Positions** tab to see your new entry, current value, entry price, and unrealized PnL update in real time.
+
+### Tracking Your PnL
+
+The [**Positions tab**] (https://jup.ag/terminal/positions) is Terminal's PnL dashboard. It tracks unrealized and realized profit and loss across every token you have ever traded on the platform, entry price, current price, total fees paid, and net result per holding.
+
+Use it weekly to review what worked and what didn't. The pattern matters more than any individual win, track which categories (Cooking momentum, Organic finds, AlphaScan launches) actually make you money.
+
+### Real Use Cases
+
+**1. Sniping a new launch**. Open AlphaScan **New**. Filter by safety: Mint and Freeze revoked, low dev holding. Spot a candidate, confirm the indicators, hit **Quick Buy** for 0.5 SOL. Monitor in Positions. Set a mental stop, if it drops 30%, exit.
+
+**2. Riding the lifecycle**. Spot a token at 85% bonding curve in AlphaScan **Soon**. Add to Watchlist. Wait for **Bonded** status, when liquidity deepens. Enter via Quick Swap with a larger size now that price impact is lower.
+
+**3. Filtering for organic plays**. Switch Discover to the **Organic** sub-tab. Tokens here have high Organic Scores, more real wallets, less wash. Add the top few to Watchlist. Wait for a dip and enter via Quick Swap.
+
+### Troubleshooting: Common Issues
+
+- **"Slippage exceeded."** Your slippage tolerance was too tight. Increase it in Settings, for memecoins, 10-15% is often needed during volatile periods.
+
+- **"Route not found."** The token may still be on its bonding curve and not yet on a standard liquidity pool. Wait for AlphaScan to show Bonded, or try a smaller amount.
+
+- **"Watchlist disappeared."** Watchlist is stored in your browser cache. It resets when you clear data, switch devices, or use incognito mode.
+
+- **"Higher fees than expected."** Some browser extensions inject their own referral fees on top of Jupiter's. If your fee looks wrong, disable third-party trading extensions and retry.
+
+- **"Transaction failed but gas was charged."** Normal on Solana, gas is paid before execution succeeds. Jupiter charges no fee on failures. If three transactions fail in a row, open a ticket at support.jup.ag.
