@@ -29,7 +29,7 @@ Offerbook is a peer-to-peer credit market built on Solana, where users borrow an
 
 Unlike traditional money markets - including [Jupiter Borrow](/lessons/jupiter-borrow) - Offerbook does not rely on real-time market pricing or continuous collateral monitoring. Risk is not managed by tracking the price of your collateral in real time. Instead, it is managed by time: every loan has a known duration, a known rate, and a known outcome at maturity. Both sides of the trade define their terms, publish an offer, and wait for a match. Once matched, nothing changes until the loan ends.
 
-At this point, Offerbook supports any <Term id="solana">Solana</Term> asset that’s Jupiter Verified, and RWAs (such as xStocks)
+At this point, Offerbook supports any <Term id="solana">Solana</Term> asset that’s Jupiter Verified, RWAs (such as xStocks), and <Term id="nft">NFTs</Term>
 
 
 ### Fixed-Term Loans & Key Terms
@@ -39,8 +39,9 @@ Every loan on Offerbook is built around five parameters. Understanding how they 
 - **Collateral:** The onchain asset locked by the borrower for the duration of the loan. Any verified token on <Term id="solana">Solana</Term> can serve as collateral. If the loan is not repaid by maturity, the lender becomes eligible to claim the collateral - but the borrower can still repay until the lender claims it.
 - **LTV (Loan-to-Value):** The ratio between the borrowed USDC amount and the value of the collateral. For example, locking $1,000 of <Term id="sol">SOL</Term> and borrowing 700 USDC sets an <Term id="ltv">LTV</Term> of 70%. The borrowed amount and <Term id="ltv">LTV</Term> are linked - adjusting one automatically updates the other.
 - **APR / APY:** The <Term id="apr">APR</Term> (Annual Percentage Rate) is the annualized cost of borrowing, set by the borrower or by the lender when creating an offer. The <Term id="apy">APY</Term> (Annual Percentage Yield) is the annualized return rate for the lender. Both are fully defined by the user, market-driven, and fixed for the entire duration of the loan.
-- **Loan Duration:** The fixed loan period during which the collateral is locked and the loan is active. The duration cannot be changed once the loan starts, and the loan must be repaid before maturity. At maturity, the loan becomes claimable by the lender. The borrower can still repay after maturity as long as the lender has not yet claimed the collateral. Once the lender claims, the collateral is transferred in full, regardless of its current market value.
-- **Loan Expiration:** Represents the time period during which a loan offer is available to be filled. If an offer reaches its expiration date without being filled, the offer is delisted and the offer creator must renew or cancel it.
+- **Loan Duration:** The fixed loan period during which the collateral is locked and the loan is active, set by the offer creator and ranging from **1 to 30 days**. The duration cannot be changed once the loan starts, and the loan must be repaid before maturity. At maturity, the loan becomes claimable by the lender. The borrower can still repay after maturity as long as the lender has not yet claimed the collateral. Once the lender claims, the collateral is transferred in full, regardless of its current market value.
+- **Offer Expiration:** The time window during which an *offer* is available to be filled - distinct from the loan duration above. Borrow offers stay valid for **1 to 7 days**, and lend offers for **24 hours**. If an offer reaches its expiration without being filled, it is delisted and the creator must renew or cancel it. Note: this is the lifespan of the offer, not the loan - once matched, the loan runs for its full 1-to-30-day duration.
+- **Loan Defaulted:** A loan enters default when it passes its maturity without being repaid and the lender claims the collateral. At that point the collateral is transferred to the lender (minus a 0.1% fee) and the borrower can no longer repay it.
 
 ![Loan Details](https://static.academy.jup.ag/images/illustrations/offerbook_loan_details.png)
 
@@ -109,7 +110,7 @@ Throughout the entire loan period, no price-based liquidation could occur - rega
 
 ### Risks & What to Keep in Mind
 
-Offerbook removes certain risks that exist in traditional money markets - but it does not remove all risk. Understanding the trade-off is essential before using the platform. For starters, Offerbook has been audited by Spearbit.
+Offerbook removes certain risks that exist in traditional money markets - but it does not remove all risk. Understanding the trade-off is essential before using the platform. For starters, Offerbook has been audited by [Cantina](https://github.com/jup-ag/docs/blob/main/static/files/audits/offerbook-cantina-may-2026.pdf) (audit dated 21 May 2026).
 
 **For borrowers:** 
 * Because there are no margin calls or liquidations during the loan, it is easy to lose track of when repayment is due. After maturity, the lender can claim the collateral at any time. The borrower can still repay after maturity as long as the lender has not yet claimed - but there are no reminders or guarantees the lender will wait. Repayment timing is entirely the borrower's responsibility.

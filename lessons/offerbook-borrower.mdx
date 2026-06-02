@@ -19,11 +19,11 @@ hiddenBadges:
 
 As a borrower, you will be able to borrow USDC using onchain assets as collateral via Offerbook, a peer-to-peer money market on <Term id="solana">Solana</Term>.
 
-Every loan has a known duration, a known return, a known outcome at maturity, with no price-based liquidations.
+Every loan has a known duration, a known cost, and a known outcome at maturity, with no price-based liquidations.
 
 ### Why Borrow on Offerbook?
 
-* **Predictable Loan Terms**. All Offerbook loans are well-defined with a fixed loan duration, a known return rate, and a clear outcome at maturity.
+* **Predictable Loan Terms**. All Offerbook loans are well-defined with a fixed loan duration, a known borrowing cost, and a clear outcome at maturity.
 * **No Price-Based Liquidations**. Risk in Offerbook is managed by duration, not by price fluctuations. There is no chance of losing the collateral due to sudden price changes.
 * **Illiquid <Term id="onchain">Onchain</Term> Assets**. High-value assets with low onchain liquidity, such as Real World Assets (RWAs) can be used as collateral without price-based liquidation or risk of price manipulation.
 
@@ -32,7 +32,7 @@ Offerbook is the ideal solution for anyone to borrow against any asset, without 
 ![Offerbook Header](https://static.academy.jup.ag/images/illustrations/offerbook_header.gif)
 
 Some of the examples of collaterals that can be used in Offerbook include:
-* **Any tokens verified** on <Term id="solana">Solana</Term> via VRFD (Verification Standard for <Term id="solana">Solana</Term> tokens)
+* **Any tokens verified** on <Term id="solana">Solana</Term> via [Jupiter Verified](https://verified.jup.ag/)
 * **RWAs**: tokenized equities, commodities, debt products, etc.
 * **NFTs**: onchain collectibles, including tokenized collectibles such as TCG (Pokémon, Baseball etc.)
 * **Tokenized physical assets**: art, watches, etc.
@@ -74,7 +74,7 @@ Review the offer terms, such as
 
 You may also choose to borrow a percentage (i.e. 50%) of the offered amount, instead of 100%, if the offer has partial fill enabled.
 
-At the bottom, you will find the **calculated repayment value** that you will repay at the end of the loan duration (fixed at 3 days).
+At the bottom, you will find the **calculated repayment value** that you will repay at the end of the loan duration.
 
 ![Loan Details](https://static.academy.jup.ag/images/illustrations/offerbook_loan_details.png)
 
@@ -136,7 +136,7 @@ If the maturity date has passed and the loan has not been fully paid off, the le
 
 ### Real Example: Borrowing with Offerbook
 
-_Note: During the private beta, loan durations are fixed at 3 days._
+_Note: loan durations range from 1 to 30 days, set by the offer creator. The offer itself stays valid for a separate window (1 to 7 days for borrow offers, 24 hours for lend offers)._
 
 Marc holds $5,000 worth of tokenized stocks in his wallet. He doesn’t want to sell them just yet, as he believes in their long-term value. But he **needs $1,000 in cash quickly** to book a flight to <Term id="solana">Solana</Term> Breakpoint before prices go up. He knows he’ll be able to repay the loan in 1 month, once he receives his salary.
 
