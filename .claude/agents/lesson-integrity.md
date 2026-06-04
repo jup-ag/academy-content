@@ -35,6 +35,7 @@ curl -sSL -o /dev/null -w "%{http_code}" --max-time 20 "https://www.youtube.com/
 ### 3. Links
 Extract every markdown link `[text](href)`.
 - **Internal lesson links** `/lessons/<slug>` (strip `#anchor`/query): the file `lessons/<slug>.mdx` MUST exist in this repo. Missing → 🔴 (dead internal link). A link to the lesson's own slug is 🟡 (self-link).
+  - **Cross-PR exception:** if you were given a "pending lessons" map (a JSON of `slug → [{pr,title}]` for lessons being added in other open PRs), and a missing target slug appears in it, downgrade from 🔴 to 🟡 with the note "target lesson is in open PR #N, not merged yet — link will resolve once #N merges." Only treat it as a hard 🔴 dead link if the slug is in neither the repo nor the pending map. The map is usually at `/tmp/lesson-review/pending-lessons.json` — read it if the orchestrator points you there.
 - **Other internal links** `/glossary/...`, `/courses/...`, etc.: sanity-check path shape; flag obviously wrong paths 🟡.
 - **External links** (`http(s)://`): probe like images (GET, follow redirects, retry once). Non-200 → 🔴. A `301/302` landing on 200 is fine, but note if the final host changed domains (🟡, possible stale link). Jupiter doc links should point at the current docs domain — flag legacy/wrong doc hosts 🟡.
 - Empty/placeholder hrefs (`#`, `http://example.com`, `TODO`) → 🔴.

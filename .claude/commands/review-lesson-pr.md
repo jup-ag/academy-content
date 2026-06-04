@@ -32,19 +32,41 @@ gh api "repos/$REPO/pulls/$PR/files" --paginate -q '.[].filename'
 ```
 Keep only paths matching `^lessons/.*\.mdx$`. These are the lessons to review (added OR modified). If none, post nothing — report "No lesson MDX files changed in PR #$PR" to the user and stop. Note each lesson's slug (filename without `.mdx`).
 
-## 2. Get the PR's version of the files onto disk
-The agents read files from disk, so the working tree must hold the **PR head** version.
-- Ensure the working tree is clean: `git status --porcelain`. If dirty, STOP and tell the user to stash/commit first (do not touch their changes).
-- Record the current branch: `ORIG=$(git rev-parse --abbrev-ref HEAD)`.
-- Check out the PR: `gh pr checkout "$PR"`.
-- **Restore `git checkout "$ORIG"` in step 5**, even if something fails.
+### 1b. Build the cross-PR "pending lessons" map
+So internal `/lessons/<slug>` links that point at lessons still in *other* open PRs aren't reported as dead, build a `slug → [{pr,title}]` map across all open PRs and save it for the integrity agent:
+```bash
+mkdir -p /tmp/lesson-review
+node -e '
+const {execSync}=require("child_process");
+const repo=process.argv[1];
+const nums=execSync(`gh pr list --state open --limit 50 --json number -q ".[].number"`).toString().trim().split(/\s+/).filter(Boolean);
+const map={};
+for (const n of nums){ let files=[]; try{files=execSync(`gh api repos/${repo}/pulls/${n}/files --paginate -q ".[].filename"`).toString().trim().split("\n");}catch(e){}
+  let title=""; try{title=execSync(`gh pr view ${n} --json title -q .title`).toString().trim();}catch(e){}
+  for (const f of files){ const m=f.match(/^lessons\/(.+)\.mdx$/); if(m){(map[m[1]]=map[m[1]]||[]).push({pr:Number(n),title});} } }
+require("fs").writeFileSync("/tmp/lesson-review/pending-lessons.json", JSON.stringify(map,null,2));
+' "$REPO"
+```
+Pass the path `/tmp/lesson-review/pending-lessons.json` to each `lesson-integrity` agent in step 3.
+
+## 2. Get the PR's version of the lesson files onto disk (WITHOUT switching branches)
+The agents read files from disk, so the working tree must hold the **PR head** version of each changed lesson. Do NOT `gh pr checkout` — this `.claude/` tooling lives on `main` and is usually absent on contributor PR branches, so switching branches would delete the agent definitions mid-run. Instead, materialize just the changed lesson files from the PR head ref while staying put:
+```bash
+git fetch -q origin "pull/$PR/head"
+SHA=$(git rev-parse --short FETCH_HEAD)
+# for each changed lesson slug:
+git show "FETCH_HEAD:lessons/<slug>.mdx" > "lessons/<slug>.mdx"
+```
+This overwrites a modified lesson's tracked file (restored in step 5) or creates an untracked new-lesson file (removed in step 5). `.claude/` is never touched. Use `$SHA` as the "Reviewed commit" in the comment.
+
+If `git status --porcelain` shows pre-existing local edits to a lesson you're about to materialize, STOP and ask the user first (don't clobber their work). Edits limited to `.claude/` are fine.
 
 ## 3. Run the four agents (in parallel) per lesson
 For EACH changed lesson, launch all four subagents concurrently (one `Agent` call each, in a single message so they run in parallel). Pass each agent the lesson path and slug.
 
 | subagent_type | Prompt to give it |
 |---|---|
-| `lesson-integrity` | "Review the lesson at `lessons/<slug>.mdx` (slug `<slug>`). Run all integrity checks and return your findings block." |
+| `lesson-integrity` | "Review the lesson at `lessons/<slug>.mdx` (slug `<slug>`). Run all integrity checks and return your findings block. Pending-lessons map (for cross-PR internal links): `/tmp/lesson-review/pending-lessons.json`." |
 | `lesson-accuracy`  | "Fact-check the lesson at `lessons/<slug>.mdx` (slug `<slug>`) against docs.jup.ag (start from https://docs.jup.ag/llms.txt). Return your findings block." |
 | `lesson-quality`   | "Do an editorial + coherence review of the lesson at `lessons/<slug>.mdx` (slug `<slug>`). Return your findings block." |
 | `lesson-quiz`      | "Propose a quiz for the lesson at `lessons/<slug>.mdx` (slug `<slug>`). Return your findings block." |
@@ -112,7 +134,7 @@ fi
 (`--input` sends a raw JSON request body, avoiding the `{repo}`/`true`/`null` magic conversion that `-F` applies. Use the real slug in the marker.)
 
 ## 5. Cleanup & report
-- Restore the original branch: `git checkout "$ORIG"`.
+- Restore the working tree: `git checkout -q -- lessons/ && git clean -fq lessons/` (restores any overwritten tracked lessons and removes materialized new-lesson files). This leaves `.claude/` and any unrelated changes untouched.
 - Print to the user: which lessons were reviewed, the per-lesson summary line, and the PR URL (`gh pr view "$PR" --json url -q .url`; comments are on the conversation tab).
 
 ## Rules
