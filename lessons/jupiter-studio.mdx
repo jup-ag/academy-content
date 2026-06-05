@@ -22,7 +22,7 @@ Studio sits in the "launch" layer of the Jupiter ecosystem, alongside [Jupiter L
 
 ### The Bonding Curve
 
-The mechanism that lets Studio launches work without upfront liquidity is the **bonding curve**. A bonding curve is a smart contract that prices a token according to a mathematical formula. The economic effect is direct: as buyers add capital, the price rises along the curve. As sellers exit, the price falls. There is no order book and no counterparty to find - every trade matches against the curve itself.
+The mechanism that lets Studio launches work without upfront liquidity is the **bonding curve**. A bonding curve is a smart contract that prices a token according to a mathematical formula. The economic effect is direct: as buyers add capital, the price rises along the curve. As sellers exit, the price falls. There is no order book and no counterparty to find - every trade matches against the curve itself. The curve utilized in Jupiter Studio is based off Meteora's Dynamic Bonding Curve.
 
 - **No initial liquidity required.** Unlike a standard AMM pool, the creator does not deposit a starting balance. Capital enters the curve as the first buyers arrive
 - **Fixed supply on every launch.** Every Studio token has a hard-capped supply of 1,000,000,000 (one billion) tokens. This is not configurable
@@ -48,7 +48,7 @@ After graduation, the token trades on Meteora rather than on Studio's curve. Any
 
 A common problem at token launches is sniping: bots that buy in the first block, dump on the price spike, and walk away with most of the upside. Studio addresses this with a built-in deterrent.
 
-When anti-sniper protection is enabled, an additional fee is charged on every buy transaction immediately after launch. The fee starts at **99%** and decays to **0%** over a randomized window between **15 and 60 seconds**. The exact duration is set per launch and is not displayed in the trading UI - though it can be read on-chain from the launch transaction.
+When anti-sniper protection is enabled, an additional fee is charged on every buy transaction immediately after launch. The fee starts at **99%** and decays to **0%** over a randomized window between **15 and 60 seconds**. The exact duration is set per launch and is not displayed in the trading UI - though it can be read onchain from the launch transaction.
 
 - **The fee stacks on top of the standard 1% trading fee.** A buyer entering during the anti-sniper window pays significantly more than a normal trade
 - **All anti-sniper revenue goes to the creator.** Jupiter does not take a share of this fee
