@@ -41,7 +41,7 @@ Here's a step-by-step walkthrough. To keep risk low while you learn, this exampl
 
 ### How Limit Orders Work: The Keeper Model
 
-Market orders fill immediately. Limit orders need to wait until price reaches your target. Jupiter handles this with a **keeper model**: an automated bot watches oracle prices on your behalf.
+Market orders fill immediately. Limit orders need to wait until price reaches your target. Jupiter handles this with a **keeper model**: an automated bot watches oracle prices on your behalf. (An oracle is an independent data provider of real-time price feeds.)
 
 ![The four-step lifecycle of a limit order](https://static.academy.jup.ag/images/illustrations/img6_keeper.png)
 
@@ -60,7 +60,7 @@ Your liquidation price isn't static. It drifts over time because borrow fees red
 
 **1. Leveraged long on momentum**
 
-SOL is trending up. You deposit 10 SOL at $150 and open a **5x long** (50 SOL position, ~$7,500). Take Profit at $165 (+10%), Stop Loss at $143 (-5%). If SOL hits $165, you earn ~50% on collateral. If $143, you lose ~25%.
+SOL is trending up. You deposit 10 SOL at $150 and open a **5x long** (50 SOL position, ~$7,500). Take Profit at $165 (+10%), Stop Loss at $143 (-5%). If SOL hits $165, the position gains ~50% on collateral. If it falls to $143, it loses ~25%.
 
 **2. Hedging an existing holding**
 
@@ -68,7 +68,7 @@ You hold SOL long-term but worry about a short-term drop. Selling would interrup
 
 **3. Short-term scalping**
 
-You want to trade intraday volatility without tying up much capital. **2-3x leverage** keeps liquidation far away; the 0.06% base fee is the main cost; borrow fees are negligible over minutes. This is the lowest-risk way to use perps.
+You want to trade intraday volatility without tying up much capital. **2-3x leverage** keeps liquidation far away; the 0.06% base fee is the main cost; borrow fees are negligible over minutes. Of these examples, this scenario carries the smallest liquidation exposure - although leverage always carries risk.
 
 ---
 
