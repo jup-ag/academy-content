@@ -32,12 +32,12 @@ The mechanism that lets Studio launches work without upfront liquidity is the **
 
 A Studio token is not designed to live on the bonding curve forever. Once enough quote tokens have been raised, the token **graduates** - meaning its liquidity migrates to a permanent Meteora pool, and the bonding curve is retired.
 
-Graduation triggers automatically when the bonding curve has raised enough quote tokens to reach the graduation market cap set at launch, and is set by the token creator during the initial setup.
+Graduation triggers automatically when the bonding curve reaches the graduation market cap. This threshold is set by the token creator during the initial setup.
 
 When graduation triggers:
 
 1. The quote tokens raised on the curve are migrated into a new Meteora **DAMMv2** pool - a constant-product (`xy=k`) liquidity pool.
-2. The corresponding share of the token supply (21% in meme mode, variable in custom mode) is paired with the raised capital to seed the pool.
+2. The corresponding share of the token supply (21% in Meme mode, variable in Custom mode) is paired with the raised capital to seed the pool.
 3. All LP tokens from this pool are permanently locked. No one can remove liquidity.
 
 After graduation, the token trades on Meteora rather than on Studio's curve. Anyone can choose to add additional liquidity to the Meteora pool, but those new positions are subject to standard LP risks like impermanent loss.
@@ -60,7 +60,7 @@ The economic logic is straightforward: bots optimizing for the earliest possible
 
 A creator picks one of two modes at launch. The choice is permanent - once a token is live, its parameters cannot be changed.
 
-* **Meme mode** uses a fixed preset designed for fast community launches. The creator only needs to provide a name, symbol, and image. The public begins buying the tokens at 5K Market Cap (MC), and the token graduates to a Meteora pool at 75K MC. 
+* **Meme mode** uses a fixed preset designed for fast community launches. The creator only needs to provide a name, symbol, and image. The public begins buying the tokens at 5K Market Cap (MC), and the token graduates to a Meteora pool at 75K MC.
 
 * **Custom mode** lets the creator adjust the core parameters. The token supply breakdown and estimated amount raised update in real time as parameters change. These parameters include: initial and graduation MC, anti-sniper protection, % of transaction fees, and an optional vesting schedule.
 
@@ -71,8 +71,8 @@ A creator picks one of two modes at launch. The choice is permanent - once a tok
 Studio's economic model gives creators an ongoing claim on their token's trading activity, before and after graduation.
 
 - **Trading fee on every buy and sell.** This applies throughout the entire lifetime of the token, on both the bonding curve and the post-graduation Meteora pool. The fees are split 50/50 between the creator and Jupiter, and are configurable to 1% or 2% in Custom mode.
-- **Anti-sniper fee: 100% to the creator.** During the initial 15-60 second window, the full anti-sniper surcharge accrues to the creator
-- **Creator allocation (custom mode only).** If the creator configured vesting, up to 80% of the supply unlocks to them according to their schedule
+- **Anti-sniper fee: 100% to the creator.** During the initial 15-60 second window, the full anti-sniper surcharge accrues to the creator.
+- **Creator allocation (custom mode only).** If the creator configured vesting, up to 80% of the supply unlocks to them according to their schedule.
 
 Earnings depend entirely on trading volume. There is no guarantee that a token will graduate or that it will generate meaningful fees - a token with no trading activity earns nothing.
 
