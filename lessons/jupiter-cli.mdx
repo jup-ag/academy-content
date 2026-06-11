@@ -14,11 +14,11 @@ hiddenBadges:
 
 ## Powering Agentic Trading with Jupiter CLI
 
-Almost everyone interacts with Jupiter through a browser or Jupiter Mobile. You connect a wallet, you read the screen, and you approve each transaction by hand. It is convenient, safe - and exactly what most people should use. A human looks at a price and decides to click.
+Almost everyone interacts with Jupiter through a browser or Jupiter Mobile. You connect a wallet, you read the screen, and you approve each transaction by hand. It is convenient, safe, and exactly what most people should use. A human looks at a price and decides to click.
 
 But there is a different kind of user that is not a person at all. It is software: a script running on a schedule, or an AI agent reasoning about the market and acting on its own. These do not read screens or click buttons. They need a way to ask for prices and execute trades as plain text. **Jupiter Command Line Interface (CLI) is the surface they trade through**, and these are typically built by power users, professional traders, and developers.
 
-If you are not building that kind of system, the [Jupiter app](https://jup.ag) is the better tool for you. But if you're building an agentic system that needs speed, automation, and composability, Jupiter CLI gives it direct, programmatic access to the full Jupiter product suite.
+If you are not building that kind of system, the [Jupiter app](https://jup.ag) is the better tool for you. But if you are building an agentic system that needs speed, automation, and composability, Jupiter CLI gives it direct, programmatic access to the full Jupiter product suite.
 
 ### CLI - the Start of True Automation
 
@@ -42,15 +42,15 @@ jup keys add mykey
 jup spot swap --from SOL --to USDC --amount 1
 
 # Open a leveraged long position
-jup perps open --side long --collateral 100 --leverage 5
+jup perps open --asset SOL --side long --amount 10 --input USDC --leverage 3
 
 # Deposit USDC into Jupiter Lend
-jup lend deposit --token USDC --amount 1000
+jup lend earn deposit --token USDC --amount 100
 ```
 
 ### Understanding JSON Output Mode
 
-By default, most command-line tools return human-readable text: formatted columns, color-coded status messages, and helpful labels. That presentation is great for humans, but if you want to integrate with other DeFi products directly, it is difficult for other machines & protocols to reliably interpret.
+By default, most command-line tools return human-readable text: formatted columns, color-coded status messages, and helpful labels. That presentation is great for humans, but if you want to integrate with other DeFi products directly, it is difficult for other machines and protocols to reliably interpret.
 
 Therefore, Jupiter CLI relies on JSON output mode, an easily configured option. By enabling JSON output mode, every command returns structured data instead of readable formatted text. This is important to allow further machine-enabled manipulation of the data.
 
@@ -60,7 +60,7 @@ Think of it this way: a restaurant delivers a finished plate, arranged and garni
 
 The CLI manages wallets through keypairs stored locally on your machine. You can generate a new keypair directly from the CLI, import an existing Solana CLI keypair, or load one from a seed phrase. Your private key never leaves your machine; it is only stored locally and not on any server.
 
-That is the trade-off of going agentic. There is no extension popping up to approve each transaction, because the whole point is that no human is in the loop. The agent acts with the authority of a key that lives on your disk, so securing that key and scoping what the agent can do is on you.
+That is the trade-off of going agentic. There is no extension popping up to approve each transaction, because the whole point is that no human is in the loop. The agent acts with the authority of a key that lives on your disk, so securing that key and defining what the agent is permitted to do is your responsibility.
 
 ### Fast, with No Guardrails
 
@@ -68,7 +68,7 @@ This is the most important concept in the entire lesson. The browser interface h
 
 A wrong token ticker, an incorrect amount, or a mistyped slippage value will be executed onchain before you can intervene. There is no undo button in the blockchain world. It's highly recommended to run every new command type with a small amount first, verify the output matches your expectations, then scale up. Treat your first few CLI sessions as a testing environment.
 
-> **Note:** Jupiter CLI is in pre-V1 / early alpha. Breaking changes may be introduced without notice. We do not recommend building production-critical systems on top of it at this stage.
+> **Note:** Jupiter CLI is in pre-V1 / early alpha. Breaking changes may be introduced without notice. It is not recommended to build production-critical systems on top of it at this stage.
 
 ---
 
