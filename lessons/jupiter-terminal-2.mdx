@@ -18,15 +18,19 @@ hiddenBadges:
 
 ## Trading on Jupiter Terminal: Your First Memecoin Trade
 
-Buying a stock on a traditional broker takes a quote, a confirmation screen, and minutes of settlement. **Jupiter Terminal** compresses that flow into a single click: Quick Buy from any feed, Quick Swap from any token page. This includes **MEV protection** behind every trade, routed through Jupiter Beam, Jupiter's own transaction landing service, via [Ultra Swap](/lessons/jupiter-swap). This lesson is the hands-on follow-up to [Discovering Memecoins on Jupiter Terminal](/lessons/jupiter-terminal-1). It covers Terminal's settings, the trade flow, PnL tracking, and how to troubleshoot the most common issues.
+Buying a stock on a traditional broker takes a quote, a confirmation screen, and minutes of settlement. **Jupiter Terminal** compresses that flow into a single click: Quick Buy from any feed, Quick Swap from any token page.
+
+Every trade is executed through [Ultra Swap](/lessons/jupiter-swap), Jupiter's automated execution engine. Ultra adds **<Term id="mev">MEV</Term> protection** by keeping your transaction private until it lands onchain, and routes it through **Jupiter Beam**, Jupiter's in-house Smart Transaction Landing engine, so trades land quickly and reliably.
+
+This lesson is the hands-on follow-up to [Discovering Memecoins on Jupiter Terminal](/lessons/jupiter-terminal-1). It covers Terminal's three trade modes, the trade flow, PnL tracking, and how to troubleshoot the most common issues.
 
 ### The Three Ways to Trade
 
 Terminal offers three trade flows, so that you can pick the one that fits your situation.
 
-* **Quick Buy** is by far the fastest method. Represented by the lightning rod, it is located on the Discover and AlphaScan pages, on the extreme right side of each token line. Above the Quick Buy column, you can change the preset amount used for each Quick Buy, as well as toggle between SOL and USDC. Good for snap decisions on tokens you've already vetted. To truly unlock the Quick Buy experience, it is recommended to use with a Jupiter wallet with Auto Approve enabled.
-* **Classic Mode** is most controlled and familiar - utilizing the classic Jupiter Quick Swap interface. Best for typical memecoin trading. Click any token to open its detailed page and you'll find the token information together with the Quick Swap interface. This allows you to perform swaps, limit orders, and recurring orders all without leaving the page. Additionally, Quick Swap only uses Jupiter's Ultra. Classic Mode should be the default option present, and can be toggled using the Settings cog icon in the top right hand corner.
-* **Trench Mode** is the most powerful and flexible trade method of all, for only the most experienced of traders. You can toggle to Trench Mode using the Settings cog icon in the top right hand corner, which changes the interface for each token's detailed page. On top of everything that Classic Mode can do, Trench Mode also allows customization of slippage and transaction fees.
+* **Quick Buy** is by far the fastest method. Represented by the lightning bolt icon (⚡), it is located on the Discover and AlphaScan pages, on the extreme right side of each token line. Above the Quick Buy column, you can change the preset amount used for each Quick Buy, as well as toggle between SOL and USDC. Good for snap decisions on tokens you've already vetted. To truly unlock the Quick Buy experience, it is recommended to use with a Jupiter wallet with Auto Approve enabled.
+* **Classic Mode** is the most controlled and familiar, using the classic Jupiter Quick Swap interface. Best for typical memecoin trading. Click any token to open its detailed page and you'll find the token information together with the Quick Swap interface. This allows you to perform swaps, limit orders, and recurring orders all without leaving the page. Additionally, Quick Swap only uses Jupiter's Ultra. Classic Mode should be the default option present, and can be toggled using the Settings cog icon in the top-right corner.
+* **Trench Mode** is the most powerful option, intended for experienced traders. You can toggle to Trench Mode using the Settings cog icon in the top-right corner, which changes the interface for each token's detailed page. On top of everything that Classic Mode can do, Trench Mode also allows customization of <Term id="slippage">slippage</Term> and transaction fees.
 
 ![Trench Mode vs Classic Mode](https://static.academy.jup.ag/images/illustrations/terminal_modes.avif)
 
@@ -34,7 +38,7 @@ Terminal offers three trade flows, so that you can pick the one that fits your s
 
 ### Tutorial: Your First Quick Buy
 
-This walkthrough uses Quick Buy with a small position - adjust accordingly to your comfort level. For the full Quick Buy experience, it is recommended to use with a Jupiter wallet with [Auto Approve](/lessons/jupiter-browser-extension) enabled.
+This walkthrough uses Quick Buy with a small position - adjust accordingly to your comfort level. As noted above, Quick Buy works best with a Jupiter wallet that has [Auto Approve](/lessons/jupiter-browser-extension) enabled.
 
 ![The Terminal Discover feed with Quick Buy buttons on every row](https://static.academy.jup.ag/images/illustrations/appterminal.avif)
 
@@ -45,11 +49,11 @@ This walkthrough uses Quick Buy with a small position - adjust accordingly to yo
 5. Review the **safety indicators**: Mint and Freeze Authority should be revoked, Top 10 Holders ideally below 50%, Dev Holding moderate, and no recent Developer Sell (DS) marker.
 6. If the token passes your checks, return to the Discover list and click the **Quick Buy** button on its row. Alternatively, you can use the Quick Swap interface on the token detailed page.
 7. Approve the transaction in your wallet. If you're using a Jupiter wallet with Auto Approve enabled, this step is bypassed.
-8. Open the **Positions** tab to see your new entry, current value, entry price, and unrealized PnL update in real time.
+8. Open the **Positions** tab to see your new entry, current value, entry price, and unrealized <Term id="pnl">PnL</Term> update in real time.
 
 ### Tracking Your PnL
 
-The [Positions tab](https://jup.ag/terminal/positions) is Terminal's PnL dashboard. It tracks unrealized and realized profit and loss across every token you have ever traded on the platform, entry price, current price, and other metrics. Use it weekly to review what worked and what didn't. The pattern matters more than any individual win; track which categories (Cooking momentum, Organic finds, AlphaScan launches) actually make you money.
+The [Positions tab](https://jup.ag/terminal/positions) is Terminal's PnL dashboard. It tracks unrealized and realized profit and loss across every token your connected wallet has ever traded, entry price, current price, and other metrics. Use it weekly to review what worked and what didn't. The pattern matters more than any individual win; track which categories (Cooking momentum, Organic finds, AlphaScan launches) tend to perform best for you.
 
 ### Real Use Cases
 
@@ -61,7 +65,7 @@ The [Positions tab](https://jup.ag/terminal/positions) is Terminal's PnL dashboa
 
 ### Troubleshooting: Common Issues
 
-- **"Slippage exceeded."** Your slippage tolerance was too tight. Increase it in Settings, especially for memecoins, as a higher slippage tolerance is often needed during volatile periods.
+- **"Slippage exceeded."** Your <Term id="slippage">slippage</Term> tolerance was too tight. Increase it in Settings, especially for memecoins, as a higher slippage tolerance is often needed during volatile periods.
 - **"Route not found."** The token may still be on its bonding curve and not yet on a standard liquidity pool. Wait for AlphaScan to show Bonded, or try a smaller amount.
 - **"Watchlist disappeared."** Watchlist is stored in your browser cache. It resets when you clear data, switch devices, or use incognito mode.
 - **"Higher fees than expected."** Some browser extensions inject their own referral fees on top of Jupiter's. If your fee looks wrong, disable third-party trading extensions and retry.
