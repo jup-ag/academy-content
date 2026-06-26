@@ -1,0 +1,99 @@
+---
+title: "Discovering Memecoins on Jupiter Terminal"
+publishedAt: '2026-05-13'
+tryUrl: 'https://jup.ag/terminal'
+badges:
+  - Beginner
+  - Product
+hiddenBadges:
+  - Jupiter Terminal
+  - Terminal
+  - Memecoins
+  - Ape Pro
+  - AlphaScan
+  - Discover
+  - Organic Score
+---
+
+## Discovering Memecoins on Jupiter Terminal
+
+In traditional finance, a market terminal like **Bloomberg or Reuters** gives professional traders a single place to discover assets, monitor live data, and act on opportunities, all in one screen. **Jupiter Terminal** is the onchain equivalent for memecoin trading on Solana, accessible at jup.ag/terminal. It combines token discovery feeds, launch screeners, safety checks, and one-click execution. This lesson covers what Terminal is, the discovery tools it offers, and most importantly, how to read its safety indicators before you trade.
+
+### Terminal vs Jupiter Swap
+
+You may already know [Jupiter Swap](/lessons/jupiter-swap), Jupiter's general-purpose token exchange. Terminal is different: it's a **discovery and intelligence layer** built on top of the same routing engine, but designed specifically for memecoin trading where seconds matter.
+
+Where Swap is a single form for any token-to-token trade, Terminal adds:
+
+* Real-time discovery feeds organized by theme (trending, organic activity, new launches)
+* A launchpad screener for tokens that haven't yet hit a standard liquidity pool
+* Safety indicators on every token
+* Quick Buy / Quick Swap for one-click execution from any list
+* Integrated PnL tracking across your holdings
+
+### The Discover Feed
+
+The default landing view is **Discover**, which has several sub-tabs to filter what you see:
+
+* **Cooking**, tokens currently gaining momentum. The default view; "what's cooking right now."
+* **Top Traded**, highest 24-hour volume.
+* **Organic**, tokens sorted by Organic Score, which estimates real user activity vs. bots and wash trading.
+* **Launchpads**, tokens launched through supported launchpads.
+* **Stocks**, tokenized equities available on Solana.
+* **Stablecoins**, dollar-pegged and other stable assets.
+
+Each row shows key token data at a glance: price, market activity, and other relevant metrics depending on the view. A **Quick Buy** button on every row lets you purchase directly from the list using your saved settings.
+
+### AlphaScan: Tracking the Token Lifecycle
+
+Most memecoins on Solana follow a predictable lifecycle. They launch on a **launchpad** with a **bonding curve**, a pricing model where the token's price rises automatically as more people buy. Once enough capital flows in, the bonding curve "completes" and the token migrates to a **standard liquidity pool** (an AMM), where price is determined by trading rather than the curve.
+
+![The three stages of a memecoin's lifecycle on Solana](https://static.academy.jup.ag/images/illustrations/t1_bonding_lifecycle.avif)
+
+**AlphaScan** (jup.ag/terminal/alphascan) is Terminal's screener for this lifecycle, with three columns:
+
+* **New**, tokens just launched. Maximum volatility, minimum information, very high risk.
+* **Soon**, approaching bonding curve completion. The Bonding Curve % near 100% signals migration is close.
+* **Bonded**, recently completed the curve and migrated to a standard AMM pool. Liquidity becomes deeper and price impact drops.
+
+Why this matters: before migration, liquidity is limited and a small buy can move the price significantly. After migration, the token behaves like any other AMM-traded asset.
+
+### The Organic Score
+
+Memecoin markets are flooded with bots, wash trading, and pump-and-dump activity. To help you separate signal from noise, Jupiter calculates an **Organic Score** for each token via [Jupiter VRFD](/lessons/jupiter-vrfd). The Organic Score acts as a heuristic that estimates how much of a token's activity comes from genuine wallets versus automated trading.
+
+Higher Organic Score means more real activity. The Organic sub-tab in Discover lets you sort the entire feed by this metric, surfacing tokens that look like they have actual community traction. Important: Organic Score is a heuristic, not a guarantee. Sophisticated bot networks can still inflate it.
+
+### Safety Indicators: The Pre-Trade Checklist
+
+Every token detail page in Terminal shows a checklist of safety indicators. None of these are guarantees, but they catch the most common red flags. **Always check this list before you click Buy.** Listed below are some of the more common safety indicators:
+
+* **Mint Authority** - whether the token creator can still mint new supply. Should be revoked for a fixed-supply token.
+* **Freeze Authority** - whether the creator can freeze trading on individual wallets. Should be revoked.
+* **Top 10 Holders %** - how much of the supply the top ten wallets hold. Ideally below 50%; concentrated holders can dump.
+* **Dev Holding %** - what the deployer wallet still holds. High dev holding is a rug-pull risk.
+* **DB / DS markers** - Developer Buy / Developer Sell flags shown when the creator wallet recently bought or sold. DS during a run-up is a strong warning.
+* **Bonding Curve %** - how close the token is to migration off its launchpad. Below 100% means thin liquidity and high price impact.
+
+![The six safety indicators to verify on every token](https://static.academy.jup.ag/images/illustrations/t2_safety_checklist.avif)
+
+### Risks of Memecoin Trading
+
+> **Note: Memecoin trading is among the highest-risk activities in crypto.**
+> Most memecoins go to zero. Only trade with money you are fully prepared to lose.
+
+**Specific risks:**
+
+* **[Rug pulls](/lessons/safety-rugs).** Creator drains liquidity or freezes accounts. Even with safety indicators, a determined scammer can mask intent.
+* **Coordinated dumps.** Concentrated holdings (high Top 10 %) can collapse the price in seconds.
+* **Bonding curve illiquidity.** Pre-migration tokens have thin liquidity, small trades can move price 10% or more.
+* **Sniper bots.** Expect to be slower than dedicated sniper bots that run on optimized infrastructure specifically to buy the freshest launches faster than any retail user can.
+
+**How to mitigate:**
+
+* Use the safety checklist religiously.
+* Start with small position sizes.
+* Prefer **Bonded** tokens over **New** ones until you understand the dynamics.
+* Use the Organic sub-tab to filter out low-quality activity.
+
+Now that you can navigate Terminal and read safety indicators, the [next lesson](/lessons/jupiter-terminal-2) covers settings, the trade flow, PnL tracking, and how to troubleshoot common issues.
