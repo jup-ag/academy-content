@@ -1,0 +1,79 @@
+---
+title: "Move Money with Jupiter Send"
+publishedAt: '2026-05-08'
+tryUrl: 'https://jup.ag/send'
+badges:
+  - Beginner
+  - Product
+hiddenBadges:
+  - Jupiter Send
+  - Send
+  - Magic Link
+---
+
+## Move Money with Jupiter Send
+
+Jupiter Send, as the name implies, is a Jupiter feature that allows users to send any Solana token to any Solana [wallet](/lessons/wallet) address. What truly sets Jupiter Send apart is its novel ability to send tokens via a link to recipients who do not yet have a wallet!
+
+Imagine your favorite stocks in the NASDAQ or S&P 500 are performing well and you want to share that success with friends or family to introduce them to the stock market. Unfortunately, traditional portfolio managers don't offer a way to directly share or transfer assets.
+
+**Jupiter Send** changes this by allowing you to send [tokenized equities](/lessons/xstocks-tokenized-equities), making it easy to onboard your TradFi friends into the onchain world in a simple and intuitive way.
+
+### Methods of Sending & Receiving Tokens
+
+Jupiter Send supports two methods for delivering Solana tokens.
+
+**To a [Crypto Address](/lessons/crypto-addresses).** The conventional method of sending tokens directly to a Solana wallet address owned by a user who already has a wallet. This method is your normal onchain activity, and does not require the recipient to manually claim the tokens.
+
+![Sending via Address](https://static.academy.jup.ag/images/illustrations/send_address.avif)
+
+**Via Magic Link.** The more innovative method is Magic Link, which is designed to send tokens and onboard non-crypto users. With this method, Jupiter Send generates a unique, one-time-use URL or QR code for a specific token, which can be shared with anyone even if they do not yet have a Solana wallet.
+
+Upon opening the link, or scanning the QR code, the recipient will be prompted to download the Jupiter Mobile app on iOS or Android and will be guided through the token-claiming process.
+
+![Sending via Magic QR](https://static.academy.jup.ag/images/illustrations/send_magicqr.avif)
+
+### Advantages of Jupiter Send
+
+Unlike other wallets or decentralized exchanges (<Term id="dex">DEXs</Term>), Jupiter Send is gasless for verified tokens. You are not required to hold <Term id="sol">SOL</Term> to cover transaction fees. Instead of charging gas fees in <Term id="sol">SOL</Term>, a small portion of the token being sent is automatically used to cover the transaction cost, providing a more seamless experience. Jupiter does not charge any protocol fees for using Jupiter Send.
+
+Additionally, Magic Links have an expiration period. If the tokens are not claimed within 7 days of being sent, they are automatically returned to the sender. The sender can also revoke the Magic Link or QR code at any time before it is claimed, which is especially useful if the link was accidentally shared with the wrong recipient.
+
+### Risk and Limitations
+
+Jupiter Send is reliable, but there are important risks and limitations to keep in mind.
+
+- Jupiter Send is designed exclusively for the Solana blockchain, so it is essential to verify the wallet address carefully before executing a transaction.
+- Magic Links do not include password protection or recipient restrictions, meaning that anyone who gains access to the link or scans the QR code will be able to claim the tokens.
+- For recipients without an existing wallet, a small amount of <Term id="sol">SOL</Term> - known as **rent** - is required to create an [Associated Token Account](/lessons/crypto-addresses) (ATA). This fee may also apply to existing wallet holders who have never held the specific token being received.
+- Lastly, standard Solana transaction size limits apply.
+
+---
+
+### Hands on Jupiter Send
+
+Jupiter Send is available at [jup.ag/send](https://jup.ag/send) and inside Jupiter Mobile.
+
+### Sending to a Wallet Address
+
+1. Open [jup.ag/send](https://jup.ag/send) and connect your wallet.
+2. Select the token and enter the amount.
+3. Choose **Address**, paste the recipient's Solana wallet address.
+4. Review the details and confirm.
+
+### Sending via Magic Link
+
+1. Open [jup.ag/send](https://jup.ag/send) and connect your wallet.
+2. Select the token and amount.
+3. Choose **Magic Link**, then click **Create Magic Link**.
+4. Share the generated link or QR code with the recipient. They can claim it any time within 7 days.
+
+### Managing Active Magic Links
+
+After connecting your wallet, scroll below the send widget to see two tabs:
+- **Active**: links that haven't been claimed yet. From here you can revoke a link to recover the tokens.
+- **Past**: links that have been claimed, cancelled, or expired.
+
+---
+
+Whether you are paying someone who already has a wallet or onboarding a friend who has never touched crypto, Jupiter Send turns moving any Solana token into something as simple as sharing a link. Ready to try it? Head to [jup.ag/send](https://jup.ag/send).
