@@ -27,7 +27,7 @@ Jupiter Send supports two methods for delivering Solana tokens.
 
 ![Sending via Address](https://static.academy.jup.ag/images/illustrations/send_address.avif)
 
-**Via Magic Link.** The more innovative method is Magic Link, which is designed to send tokens and onboard non-crypto users. With this method, Jupiter Send generates a unique, one-time-use URL or QR code for a specific token, which can be shared with anyone even if they do not yet have a Solana wallet. 
+**Via Magic Link.** The more innovative method is Magic Link, which is designed to send tokens and onboard non-crypto users. With this method, Jupiter Send generates a unique, one-time-use URL or QR code for a specific token, which can be shared with anyone even if they do not yet have a Solana wallet.
 
 Upon opening the link, or scanning the QR code, the recipient will be prompted to download the Jupiter Mobile app on iOS or Android and will be guided through the token-claiming process.
 
@@ -35,17 +35,17 @@ Upon opening the link, or scanning the QR code, the recipient will be prompted t
 
 ### Advantages of Jupiter Send
 
-Unlike other wallets or decentralized exchanges (DEXs), Jupiter Send is gasless for verified tokens. You are not required to hold SOL to cover transaction fees. Instead of charging gas fees in SOL, a small portion of the token being sent is automatically used to cover the transaction cost, providing a more seamless experience. Jupiter does not charge any protocol fees for using Jupiter Send.
+Unlike other wallets or decentralized exchanges (<Term id="dex">DEXs</Term>), Jupiter Send is gasless for verified tokens. You are not required to hold <Term id="sol">SOL</Term> to cover transaction fees. Instead of charging gas fees in <Term id="sol">SOL</Term>, a small portion of the token being sent is automatically used to cover the transaction cost, providing a more seamless experience. Jupiter does not charge any protocol fees for using Jupiter Send.
 
-Additionally, Magic links have an expiration period. If the tokens are not claimed within 7 days of being sent, they are automatically returned to the sender. In addition, the sender can revoke the magic link or QR code at any time before it is claimed, which is especially useful if the link was accidentally shared with the wrong recipient.
+Additionally, Magic Links have an expiration period. If the tokens are not claimed within 7 days of being sent, they are automatically returned to the sender. The sender can also revoke the Magic Link or QR code at any time before it is claimed, which is especially useful if the link was accidentally shared with the wrong recipient.
 
 ### Risk and Limitations
 
-Jupiter Send is a safe and reliable feature for senders; however, there are important risks and limitations to consider.
+Jupiter Send is reliable, but there are important risks and limitations to keep in mind.
 
 - Jupiter Send is designed exclusively for the Solana blockchain, so it is essential to verify the wallet address carefully before executing a transaction.
-- Magic links do not include password protection or recipient restrictions, meaning that anyone who gains access to the link or scans the QR code will be able to claim the tokens.
-- For recipients without an existing wallet, a small amount of SOL - known as **rent** - is required to create an [Associated Token Account](/lessons/crypto-addresses) (ATA). This fee may also apply to existing wallet holders who have never held the specific token being received.
+- Magic Links do not include password protection or recipient restrictions, meaning that anyone who gains access to the link or scans the QR code will be able to claim the tokens.
+- For recipients without an existing wallet, a small amount of <Term id="sol">SOL</Term> - known as **rent** - is required to create an [Associated Token Account](/lessons/crypto-addresses) (ATA). This fee may also apply to existing wallet holders who have never held the specific token being received.
 - Lastly, standard Solana transaction size limits apply.
 
 ---
@@ -73,3 +73,7 @@ Jupiter Send is available at [jup.ag/send](https://jup.ag/send) and inside Jupit
 After connecting your wallet, scroll below the send widget to see two tabs:
 - **Active**: links that haven't been claimed yet. From here you can revoke a link to recover the tokens.
 - **Past**: links that have been claimed, cancelled, or expired.
+
+---
+
+Whether you are paying someone who already has a wallet or onboarding a friend who has never touched crypto, Jupiter Send turns moving any Solana token into something as simple as sharing a link. Ready to try it? Head to [jup.ag/send](https://jup.ag/send).
