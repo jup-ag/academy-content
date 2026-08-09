@@ -1,0 +1,126 @@
+---
+title: "Launching Tokens with Jupiter Studio"
+publishedAt: '2026-05-18'
+tryUrl: 'https://studio.jup.ag/'
+badges:
+  - Advanced
+  - Product
+hiddenBadges:
+  - Jupiter Studio
+  - Studio
+  - Token Launch
+  - Bonding Curve
+  - Graduation
+  - Meteora
+---
+
+## Launching Tokens with Jupiter Studio
+
+Bringing a new tradeable asset to market in traditional finance requires an underwriter, market makers willing to commit capital, an order book, and weeks of regulatory and operational setup. **Jupiter Studio** compresses that entire process into a few clicks. A creator can launch a token on Solana without writing code, without depositing initial liquidity, and without coordinating with a market maker - the launch mechanism itself handles price discovery from the first buy onward.
+
+Studio sits in the "launch" layer of the Jupiter ecosystem, alongside [Jupiter Lock](/lessons/jupiter-lock) (vesting and token locking) and [VRFD](/lessons/jupiter-vrfd) (token verification). It is designed for community tokens - memes, project tokens, collectibles - and for any creator who wants to issue a token on Solana with a transparent set of mechanics built in from day one.
+
+### The Bonding Curve
+
+The mechanism that lets Studio launches work without upfront liquidity is the **bonding curve**. A bonding curve is a smart contract that prices a token according to a mathematical formula. The economic effect is direct: as buyers add capital, the price rises along the curve. As sellers exit, the price falls. There is no order book and no counterparty to find - every trade matches against the curve itself. The curve utilized in Jupiter Studio is based off Meteora's Dynamic Bonding Curve.
+
+- **No initial liquidity required.** Unlike a standard AMM pool, the creator does not deposit a starting balance. Capital enters the curve as the first buyers arrive
+- **Fixed supply on every launch.** Every Studio token has a hard-capped supply of 1,000,000,000 (one billion) tokens. This is not configurable
+- **Free entry and exit before graduation.** Buyers and sellers can trade on the curve at any time before the token graduates. There are no lockups for ordinary traders
+
+### Graduation: From Curve to Pool
+
+A Studio token is not designed to live on the bonding curve forever. Once enough quote tokens have been raised, the token **graduates** - meaning its liquidity migrates to a permanent Meteora pool, and the bonding curve is retired.
+
+Graduation triggers automatically when the bonding curve reaches the graduation market cap. This threshold is set by the token creator during the initial setup.
+
+When graduation triggers:
+
+1. The quote tokens raised on the curve are migrated into a new Meteora **DAMMv2** pool - a constant-product (`xy=k`) liquidity pool.
+2. The corresponding share of the token supply (21% in Meme mode, variable in Custom mode) is paired with the raised capital to seed the pool.
+3. All LP tokens from this pool are permanently locked. No one can remove liquidity.
+
+After graduation, the token trades on Meteora rather than on Studio's curve. Anyone can choose to add additional liquidity to the Meteora pool, but those new positions are subject to standard LP risks like impermanent loss.
+
+**What if a token never graduates?** It stays on the bonding curve indefinitely. Buyers and sellers can continue to trade on the curve, and no capital is lost. The token may temporarily drop off Alphascan on [Jupiter Terminal](/lessons/jupiter-terminal-1) if trading goes quiet, but it reappears when activity resumes.
+
+### Anti-Sniper Protection
+
+A common problem at token launches is sniping: bots that buy in the first block, dump on the price spike, and walk away with most of the upside. Studio addresses this with a built-in deterrent.
+
+When anti-sniper protection is enabled, an additional fee is charged on every buy transaction immediately after launch. The fee starts at **99%** and decays to **0%** over a randomized window between **15 and 60 seconds**. The exact duration is set per launch and is not displayed in the trading UI - though it can be read onchain from the launch transaction.
+
+- **The fee stacks on top of the standard 1% trading fee.** A buyer entering during the anti-sniper window pays significantly more than a normal trade
+- **All anti-sniper revenue goes to the creator.** Jupiter does not take a share of this fee
+- **The jup.ag interface displays a warning** while anti-sniper fees are still active. Waiting for that warning to disappear is the simplest way to avoid the surcharge
+
+The economic logic is straightforward: bots optimizing for the earliest possible buy pay the highest fee, and the cost decays to near-zero quickly enough that ordinary buyers entering shortly after are barely affected.
+
+### Launch Modes: Meme and Custom
+
+A creator picks one of two modes at launch. The choice is permanent - once a token is live, its parameters cannot be changed.
+
+* **Meme mode** uses a fixed preset designed for fast community launches. The creator only needs to provide a name, symbol, and image. The public begins buying the tokens at 5K Market Cap (MC), and the token graduates to a Meteora pool at 75K MC.
+
+* **Custom mode** lets the creator adjust the core parameters. The token supply breakdown and estimated amount raised update in real time as parameters change. These parameters include: initial and graduation MC, anti-sniper protection, % of transaction fees, and an optional vesting schedule.
+
+[Vesting](/lessons/tokenomics) parameters in particular deserve careful thought. They cannot be altered after launch, and a poorly-chosen cliff or duration locks the creator's allocation longer than intended - or releases it faster than the market can absorb.
+
+### Creator Earnings
+
+Studio's economic model gives creators an ongoing claim on their token's trading activity, before and after graduation.
+
+- **Trading fee on every buy and sell.** This applies throughout the entire lifetime of the token, on both the bonding curve and the post-graduation Meteora pool. The fees are split 50/50 between the creator and Jupiter, and are configurable to 1% or 2% in Custom mode.
+- **Anti-sniper fee: 100% to the creator.** During the initial 15-60 second window, the full anti-sniper surcharge accrues to the creator.
+- **Creator allocation (custom mode only).** If the creator configured vesting, up to 80% of the supply unlocks to them according to their schedule.
+
+Earnings depend entirely on trading volume. There is no guarantee that a token will graduate or that it will generate meaningful fees - a token with no trading activity earns nothing.
+
+**Claiming fees** is straightforward. The creator connects the deployer wallet (the wallet used to launch the token) to their Studio token page. Accumulated fees appear on the right side of the page with a claim button next to them.
+
+The token page itself doubles as a content surface - creators can post updates, share progress, and use it as a hub for their community.
+
+### Risks & Considerations
+
+Studio is built to remove friction at launch, not to remove risk. Several characteristics deserve attention before launching or buying a Studio token.
+
+- **Parameters are permanent.** Market caps, vesting schedule, anti-sniper toggle, and quote token are all set at launch and cannot be modified. There is no admin override
+- **Graduation is not guaranteed.** Most tokens launched on any bonding curve platform do not graduate. A token that fails to reach its graduation threshold simply remains on the curve - functional, but without the deeper liquidity a Meteora pool would provide
+- **Anti-sniper fees can be punishing for buyers.** Buying within the first 15-60 seconds can cost dramatically more than a standard trade. The warning on jup.ag is the practical signal to wait
+- **All LP is permanently locked.** No one can remove liquidity upon graduation of the token.
+- **Adding post-graduation liquidity carries standard LP risk.** Anyone can add liquidity to the Meteora pool after graduation, but those new positions are exposed to impermanent loss and full market risk on the token
+
+For buyers, the practical implication is to evaluate any Studio token the same way you would evaluate any new community token: check the creator's vesting schedule, the quote token, whether the token has graduated, and how much organic trading volume actually exists. The mechanics are transparent, but transparency is not the same as a guarantee of returns.
+
+---
+
+### Launch with Jupiter Studio
+
+The launch flow has three steps. Plan to spend more time on the first two than on the last - the launch transaction itself is just a confirmation.
+
+**Step 1: Basics**
+
+Go to [studio.jup.ag](https://studio.jup.ag) and connect a wallet. The wallet you connect becomes your **deployer wallet** and is the only wallet that can claim fees later. Use one you control directly and intend to keep accessible long-term.
+
+Choose your launch mode (Meme or Custom) and enter the basics: image, name, and symbol. Optionally, use **Magic Gen** to auto-generate token info.
+
+**Step 2: Enhance**
+
+Review your configuration. This screen shows your settings, the token supply breakdown, and the estimated amount raised before graduation - all updated in real time as you tweak parameters. Add a header banner for your token page, write a description, and optionally include social links.
+
+If anything looks off, click **Customize Settings** to go back. This is the last point at which parameters can be changed.
+
+**Step 3: Share**
+
+Confirm and launch. Your token is live on the bonding curve immediately and tradeable through the jup.ag interface.
+
+**Post-Launch: Monitor and Claim**
+
+Trading begins as soon as the launch transaction confirms. From here, the creator's role shifts to:
+
+- Driving trading activity. Fees only accumulate when there is volume
+- Watching the token page for accumulated fees and claiming them as they build up
+- If the token reaches the graduation threshold, confirming the migration completed and bookmarking the new Meteora pool address for reference
+
+Every Studio token automatically appears on Alphascan and is flagged as a Studio launch, which helps with discovery during the early phase.
+
